@@ -12,6 +12,7 @@ const pluginsList = [];
 
 const plug = [];
 
+// so em ambiente dev
 if (isDevelopment) {
   pluginsList.push(new reactRefleshWebPackPlugin());
   plug.push(require.resolve("react-refresh/babel"));
