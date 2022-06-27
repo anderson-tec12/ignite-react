@@ -1,7 +1,7 @@
 import { RepositoryItem } from "../RepositoryItem";
 import { api } from "../../services/api";
 import "../../styles/repositories.scss";
-import { useState, useEffect } from "react";
+import { useState, useEffect, StrictMode } from "react";
 
 interface Repository {
   name: string;
@@ -30,18 +30,22 @@ export function RepositoryList() {
       <h1>Lista de repositorios</h1>
 
       <ul>
-        {repositories.map((repository) => {
-          return (
-            <RepositoryItem
-              key={repository.id}
-              repository={{
-                name: repository.name,
-                description: repository.description,
-                link: repository.html_url,
-              }}
-            />
-          );
-        })}
+        <StrictMode>
+          {repositories.map((repository) => {
+            return (
+              <StrictMode key={repository.id}>
+                <RepositoryItem
+                  key={repository.id}
+                  repository={{
+                    name: repository.name,
+                    description: repository.description,
+                    link: repository.html_url,
+                  }}
+                />
+              </StrictMode>
+            );
+          })}
+        </StrictMode>
       </ul>
     </section>
   );
