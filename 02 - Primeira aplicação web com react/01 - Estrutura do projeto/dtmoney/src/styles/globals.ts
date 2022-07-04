@@ -19,6 +19,10 @@ export const GlobalStyles = createGlobalStyle`
     box-sizing:border-box
   }
 
+    // REM = 1rem = font-size do navegador "16px default"
+    //93.75% =>  16px x 0.9375 = 15px
+    //87.5% =>  16px x 0.875 = 14px
+
   html{
     @media (max-width: 1080px){
       font-size:93.75%; // 15px
@@ -28,8 +32,8 @@ export const GlobalStyles = createGlobalStyle`
       font-size:87.5%; // 14px
     }
   }
+  
 
-  // REM = 1rem = font-size do navegador "16px"
 
   body{
     background: var(--background);
